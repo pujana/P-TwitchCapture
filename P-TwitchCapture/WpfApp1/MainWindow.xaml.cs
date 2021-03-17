@@ -69,7 +69,8 @@ namespace PTwitchCapture
             }));
         }
 
-        public void mockMsg(string msg)
+        //simulate Mock Msg
+        public void getMsg_autoP2(string msg)
         {
             //To handle GUI by Thread
             this.Dispatcher.Invoke((Action)(() =>
@@ -77,7 +78,7 @@ namespace PTwitchCapture
                 if (isPause) { return; }
                 //Console.WriteLine("Mock: " + msg);
                 //addTxtMsg(user, msg);
-                if (checkV2.IsChecked.Value) { processV2_part1(msg); }
+                if (checkV2.IsChecked.Value) { processV2_part1_autoP2(msg); }
                 else { processV1(msg); }
                 //We don't use V1 recently
             }));
@@ -116,7 +117,16 @@ namespace PTwitchCapture
         //Part 1 invoked by Msg
         void processV2_part1(string msg)
         {
-            a2.addMsg(msg);
+            if (isOneSideMode) { }
+            else
+            {
+                a2.addMsg(msg, isOneSideMode);
+                countExport();
+            }
+        }
+        void processV2_part1_autoP2(string msg)
+        {
+            a2.addMsg(msg, false);
             countExport();
         }
 
@@ -552,7 +562,7 @@ namespace PTwitchCapture
             //oneSide_generateEvery = int.Parse(txt_oneSide_rate.Text);
             oneSide_generateEvery = TheTool.getInt(txt_oneSide_rate);
             //
-            oneSideMode_startTimer();
+            if (isOneSideMode) { oneSideMode_startTimer(); }
         }
 
 
@@ -566,8 +576,8 @@ namespace PTwitchCapture
 
         private void oneSide_Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (oneSide_nextDirection) { mockMsg("P2+");  }
-            else { mockMsg("P1-");  }            
+            if (oneSide_nextDirection) { getMsg_autoP2("P2+");  }
+            else { getMsg_autoP2("P1-");  }            
             oneSide_nextDirection = !oneSide_nextDirection;
         }
 

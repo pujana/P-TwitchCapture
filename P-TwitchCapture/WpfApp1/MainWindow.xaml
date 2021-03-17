@@ -75,7 +75,7 @@
 
                         </Grid>
                     </GroupBox>
-                    <GroupBox Header="One-side Mode" HorizontalAlignment="Left" Height="152" Margin="234,131,0,0" VerticalAlignment="Top" Width="268">
+                    <GroupBox Header="One-side Mode (Ver 2 only)" HorizontalAlignment="Left" Height="152" Margin="234,131,0,0" VerticalAlignment="Top" Width="268">
                         <Grid>
                             <TextBox x:Name="txt_oneSide_numParticipant" HorizontalAlignment="Left" Height="23" Margin="170,0,0,40" TextWrapping="Wrap" Text="10" VerticalAlignment="Bottom" Width="59" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="#FFC4E5F7">
                             </TextBox>
