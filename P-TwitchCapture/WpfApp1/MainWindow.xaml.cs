@@ -117,12 +117,12 @@ namespace PTwitchCapture
         //Part 1 invoked by Msg
         void processV2_part1(string msg)
         {
-            if (isOneSideMode) { }
-            else
-            {
+            //if (isOneSideMode) { }
+            //else
+            //{
                 a2.addMsg(msg, isOneSideMode);
                 countExport();
-            }
+            //}
         }
         void processV2_part1_autoP2(string msg)
         {
