@@ -126,7 +126,7 @@ namespace PTwitchCapture
         }
         void processV2_part1_autoP2(string msg)
         {
-            a2.addMsg(msg, false);
+            a2.addMsg(msg, false);//by pass function
             countExport();
         }
 
